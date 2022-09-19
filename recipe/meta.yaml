@@ -29,14 +29,17 @@ test:
     - schema
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest
 
 about:
   home: https://github.com/keleshev/schema
   license: MIT
   license_family: MIT
   license_file: LICENSE-MIT
+  license_url: https://github.com/keleshev/schema/blob/master/LICENSE-MIT
   summary: Schema validation just got Pythonic
 
   description: |
