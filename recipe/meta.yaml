@@ -11,20 +11,26 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.6
-    - contextlib2 ==0.5.5
+    - python >=2.7
+    - contextlib2 >=0.5.5
 
 test:
   imports:
     - schema
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/keleshev/schema
@@ -38,6 +44,7 @@ about:
     obtained from config-files, forms, external services or command-line
     parsing, converted from JSON/YAML (or something else) to Python data-types.
   dev_url: https://github.com/keleshev/schema
+  doc_url: https://github.com/keleshev/schema/blob/master/README.rst
 
 extra:
   recipe-maintainers:
