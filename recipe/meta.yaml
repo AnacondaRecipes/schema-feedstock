@@ -10,8 +10,7 @@ source:
   sha256: f06717112c61895cabc4707752b88716e8420a8819d71404501e114f91043197
 
 build:
-  noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
@@ -21,18 +20,23 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=2.7
+    - python
     - contextlib2 >=0.5.5
 
 test:
   imports:
     - schema
+  source_files:
+    - test_schema.py
+    # The license is needed for pytest
+    - LICENSE-MIT
   requires:
     - pip
     - pytest
+    - mock
   commands:
     - pip check
-    - pytest
+    - pytest -vv --color=yes test_schema.py
 
 about:
   home: https://github.com/keleshev/schema
