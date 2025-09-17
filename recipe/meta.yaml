@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install --no-deps . -vv
+  script: {{ PYTHON }} -m pip install --no-deps . -vv --no-build-isolation
 
 requirements:
   host:
@@ -43,7 +43,6 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE-MIT
-  license_url: https://github.com/keleshev/schema/blob/master/LICENSE-MIT
   summary: Schema validation just got Pythonic
   description: |
     schema is a Python library for validating data structures, such as those
