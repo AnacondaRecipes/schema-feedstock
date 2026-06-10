@@ -26,6 +26,7 @@ requirements:
 test:
   source_files:
     - test_schema.py
+    - LICENSE-MIT
   imports:
     - schema
   commands:
