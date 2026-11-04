@@ -1,16 +1,16 @@
 {% set name = "schema" %}
-{% set version = "0.7.8" %}
+{% set version = "0.7.2" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e86cc08edd6fe6e2522648f4e47e3a31920a76e82cce8937535422e310862ab5
+  sha256: b536f2375b49fdf56f36279addae98bd86a8afbd58b3c32ce363c464bed5fc1c
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps . -vv --no-build-isolation
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - wheel
   run:
     - python
+    - contextlib2 >=0.5.5
 
 test:
   imports:
